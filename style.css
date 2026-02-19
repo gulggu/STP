@@ -1,0 +1,364 @@
+/**
+ * ST-LifeSim 공통 스타일
+ * 팝업 레이아웃, 오버레이, 공통 UI 요소 스타일
+ */
+
+/* ==================== 팝업 오버레이 ==================== */
+.lifesim-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ==================== 팝업창 공통 스타일 ==================== */
+.lifesim-popup {
+    background-color: var(--SmartThemeBodyColor, #1a1a1a);
+    border: 1px solid var(--SmartThemeBorderColor, #333);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    max-width: 90vw;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    animation: popupSlideIn 0.3s ease-out;
+    color: var(--SmartThemeBodyText, #e0e0e0);
+}
+
+@keyframes popupSlideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 팝업 제목바 */
+.lifesim-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--SmartThemeBorderColor, #333);
+    background-color: var(--SmartThemeBlurTintColor, rgba(0, 0, 0, 0.3));
+}
+
+.lifesim-popup-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.lifesim-popup-close {
+    background: none;
+    border: none;
+    color: var(--SmartThemeBodyText, #e0e0e0);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.lifesim-popup-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 팝업 본문 */
+.lifesim-popup-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+/* 팝업 하단 버튼 영역 */
+.lifesim-popup-footer {
+    padding: 15px 20px;
+    border-top: 1px solid var(--SmartThemeBorderColor, #333);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* ==================== 탭 스타일 ==================== */
+.lifesim-tabs {
+    display: flex;
+    gap: 5px;
+    border-bottom: 1px solid var(--SmartThemeBorderColor, #333);
+    margin-bottom: 15px;
+}
+
+.lifesim-tab {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--SmartThemeBodyText, #e0e0e0);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.lifesim-tab:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.lifesim-tab.active {
+    border-bottom-color: var(--SmartThemeQuoteColor, #4a9eff);
+    color: var(--SmartThemeQuoteColor, #4a9eff);
+}
+
+/* ==================== 버튼 스타일 ==================== */
+.lifesim-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--SmartThemeBorderColor, #333);
+    border-radius: 5px;
+    background-color: var(--SmartThemeBodyColor, #2a2a2a);
+    color: var(--SmartThemeBodyText, #e0e0e0);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.lifesim-btn:hover {
+    background-color: var(--SmartThemeBlurTintColor, rgba(255, 255, 255, 0.1));
+}
+
+.lifesim-btn-primary {
+    background-color: var(--SmartThemeQuoteColor, #4a9eff);
+    color: white;
+    border: none;
+}
+
+.lifesim-btn-primary:hover {
+    background-color: #3a8eef;
+}
+
+.lifesim-btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.lifesim-btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* ==================== 입력 필드 스타일 ==================== */
+.lifesim-input,
+.lifesim-textarea,
+.lifesim-select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--SmartThemeBorderColor, #333);
+    border-radius: 5px;
+    background-color: var(--SmartThemeBodyColor, #2a2a2a);
+    color: var(--SmartThemeBodyText, #e0e0e0);
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.lifesim-input:focus,
+.lifesim-textarea:focus,
+.lifesim-select:focus {
+    outline: none;
+    border-color: var(--SmartThemeQuoteColor, #4a9eff);
+}
+
+.lifesim-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* ==================== 폼 레이아웃 ==================== */
+.lifesim-form-group {
+    margin-bottom: 15px;
+}
+
+.lifesim-form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.lifesim-form-label.required::after {
+    content: ' *';
+    color: #dc3545;
+}
+
+/* ==================== 토스트 알림 ==================== */
+.lifesim-toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 15px 20px;
+    background-color: var(--SmartThemeBodyColor, #2a2a2a);
+    border: 1px solid var(--SmartThemeBorderColor, #333);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 10001;
+    animation: slideInRight 0.3s ease-out;
+    max-width: 400px;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.lifesim-toast.success {
+    border-left: 4px solid #28a745;
+}
+
+.lifesim-toast.error {
+    border-left: 4px solid #dc3545;
+}
+
+.lifesim-toast.info {
+    border-left: 4px solid #4a9eff;
+}
+
+.lifesim-toast.warning {
+    border-left: 4px solid #ffc107;
+}
+
+/* ==================== 설정 페이지 스타일 ==================== */
+.lifesim-settings {
+    padding: 20px;
+}
+
+.lifesim-settings h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--SmartThemeQuoteColor, #4a9eff);
+}
+
+.lifesim-settings h4 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.lifesim-setting-item {
+    margin-bottom: 10px;
+}
+
+.lifesim-setting-item label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.lifesim-setting-item input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* ==================== 그리드 레이아웃 ==================== */
+.lifesim-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.lifesim-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.lifesim-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.lifesim-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* ==================== 카드 스타일 ==================== */
+.lifesim-card {
+    padding: 15px;
+    border: 1px solid var(--SmartThemeBorderColor, #333);
+    border-radius: 8px;
+    background-color: var(--SmartThemeBodyColor, #2a2a2a);
+}
+
+/* ==================== 스크롤바 스타일 ==================== */
+.lifesim-popup-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lifesim-popup-body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.lifesim-popup-body::-webkit-scrollbar-thumb {
+    background: var(--SmartThemeBorderColor, #555);
+    border-radius: 4px;
+}
+
+.lifesim-popup-body::-webkit-scrollbar-thumb:hover {
+    background: var(--SmartThemeQuoteColor, #4a9eff);
+}
+
+/* ==================== 유틸리티 클래스 ==================== */
+.lifesim-text-center {
+    text-align: center;
+}
+
+.lifesim-text-right {
+    text-align: right;
+}
+
+.lifesim-mt-1 { margin-top: 0.5rem; }
+.lifesim-mt-2 { margin-top: 1rem; }
+.lifesim-mt-3 { margin-top: 1.5rem; }
+
+.lifesim-mb-1 { margin-bottom: 0.5rem; }
+.lifesim-mb-2 { margin-bottom: 1rem; }
+.lifesim-mb-3 { margin-bottom: 1.5rem; }
+
+.lifesim-hidden {
+    display: none !important;
+}
+
+.lifesim-flex {
+    display: flex;
+}
+
+.lifesim-flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lifesim-gap-1 { gap: 0.5rem; }
+.lifesim-gap-2 { gap: 1rem; }
+.lifesim-gap-3 { gap: 1.5rem; }

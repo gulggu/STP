@@ -314,8 +314,9 @@ async function handleVoiceMemo() {
         </div>
     `;
     
-    // 커스텀 다이얼로그 생성 (popup.js 활용)
-    const { createPopup } = await import('../../utils/popup.js');
+    // Import popup module dynamically
+    const popupModule = await import('../../utils/popup.js');
+    const { createPopup } = popupModule;
     
     createPopup({
         title: '🎤 음성메모',
@@ -352,8 +353,10 @@ async function handleVoiceMemo() {
 /**
  * 사건 기록 아카이브 표시
  */
-function showEventArchive() {
-    const { createPopup } = require('../../utils/popup.js');
+async function showEventArchive() {
+    // Import popup module dynamically
+    const popupModule = await import('../../utils/popup.js');
+    const { createPopup } = popupModule;
     
     let archiveHtml = '';
     
@@ -433,5 +436,5 @@ function getCurrentCharacterName() {
  * 고유 ID 생성
  */
 function generateId() {
-    return 'event_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    return 'event_' + Date.now() + '_' + Math.random().toString(36).substring(2, 11);
 }

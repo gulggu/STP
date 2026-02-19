@@ -293,7 +293,7 @@ function getCategories() {
 /**
  * 이모티콘 추가 다이얼로그
  */
-function showAddEmoticonDialog(existingEmoticon = null) {
+async function showAddEmoticonDialog(existingEmoticon = null) {
     const isEdit = existingEmoticon !== null;
     const emoticon = existingEmoticon || {
         name: '',
@@ -339,7 +339,9 @@ function showAddEmoticonDialog(existingEmoticon = null) {
         </div>
     `;
     
-    const { createPopup } = require('../../utils/popup.js');
+    // Import popup module dynamically
+    const popupModule = await import('../../utils/popup.js');
+    const { createPopup } = popupModule;
     
     createPopup({
         title: isEdit ? '이모티콘 편집' : '이모티콘 추가',
@@ -580,7 +582,7 @@ function enhanceEmoticonPopup() {
  * ID 생성
  */
 function generateId() {
-    return 'emoticon_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    return 'emoticon_' + Date.now() + '_' + Math.random().toString(36).substring(2, 11);
 }
 
 /**

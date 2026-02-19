@@ -171,7 +171,7 @@ export async function importSettings(file) {
         const settings = JSON.parse(text);
         
         // 유효성 검증 (필수 키 확인)
-        if (!settings.enabled === undefined || !settings.modules) {
+        if (settings.enabled === undefined || !settings.modules) {
             throw new Error('Invalid settings file format');
         }
         

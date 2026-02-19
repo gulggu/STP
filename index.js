@@ -15,6 +15,8 @@ import { storage } from './utils/storage.js';
 import { contextInjector } from './utils/context-inject.js';
 import { showSettings } from './settings.js';
 import { showSuccess, showInfo } from './utils/ui.js';
+import { initFloatingMenu, destroyFloatingMenu } from './utils/floating-menu.js';
+import { send } from './utils/slash.js';
 
 // 모듈 동적 import
 const modules = {};
@@ -36,6 +38,12 @@ async function init() {
     
     // UI에 설정 버튼 추가
     addSettingsButton();
+    
+    // 플로팅 메뉴 추가
+    setupFloatingMenu();
+    
+    // 퀵센드 버튼 추가
+    addQuickSendButton();
     
     // 모듈 로드
     await loadModules();
@@ -141,6 +149,203 @@ async function loadModules() {
 }
 
 /**
+ * 플로팅 메뉴 설정
+ */
+function setupFloatingMenu() {
+    const menuItems = [
+        {
+            icon: '🛠️',
+            label: '퀵 도구',
+            onClick: () => {
+                showQuickToolsMenu();
+            }
+        },
+        {
+            icon: '😊',
+            label: '이모티콘',
+            onClick: () => {
+                if (modules.emoticon && modules.emoticon.showEmoticonPanel) {
+                    modules.emoticon.showEmoticonPanel();
+                } else {
+                    showInfo('이모티콘 모듈이 활성화되지 않았습니다.');
+                }
+            }
+        },
+        {
+            icon: '📋',
+            label: '연락처',
+            onClick: () => {
+                if (modules.contacts && modules.contacts.showContactsPanel) {
+                    modules.contacts.showContactsPanel();
+                } else {
+                    showInfo('연락처 모듈이 활성화되지 않았습니다.');
+                }
+            }
+        },
+        {
+            icon: '💰',
+            label: '지갑',
+            onClick: () => {
+                if (modules.wallet && modules.wallet.showWalletPanel) {
+                    modules.wallet.showWalletPanel();
+                } else {
+                    showInfo('지갑 모듈이 활성화되지 않았습니다.');
+                }
+            }
+        },
+        {
+            icon: '📅',
+            label: '캘린더',
+            onClick: () => {
+                if (modules.calendar && modules.calendar.showCalendarPanel) {
+                    modules.calendar.showCalendarPanel();
+                } else {
+                    showInfo('캘린더 모듈이 활성화되지 않았습니다.');
+                }
+            }
+        },
+        {
+            icon: '📸',
+            label: 'SNS',
+            onClick: () => {
+                if (modules.sns && modules.sns.showSNSPanel) {
+                    modules.sns.showSNSPanel();
+                } else {
+                    showInfo('SNS 모듈이 활성화되지 않았습니다.');
+                }
+            }
+        },
+        {
+            icon: '📞',
+            label: '통화',
+            onClick: () => {
+                if (modules.call && modules.call.showCallPanel) {
+                    modules.call.showCallPanel();
+                } else {
+                    showInfo('통화 모듈이 활성화되지 않았습니다.');
+                }
+            }
+        },
+        {
+            icon: '⚙️',
+            label: '설정',
+            onClick: () => {
+                showSettings();
+            }
+        }
+    ];
+    
+    initFloatingMenu(menuItems);
+}
+
+/**
+ * 퀵 도구 메뉴 표시
+ */
+function showQuickToolsMenu() {
+    const { createPopup } = require('./utils/popup.js');
+    const { createElement } = require('./utils/ui.js');
+    
+    const container = createElement('div', {
+        className: 'stls-flex stls-flex-col stls-gap-md'
+    });
+    
+    const tools = [
+        { icon: '⏱️', label: '시간 구분선', action: 'handleTimeDivider' },
+        { icon: '👻', label: '읽씹 연출', action: 'handleReadReceipt' },
+        { icon: '📵', label: '연락 안됨', action: 'handleUnreachable' },
+        { icon: '⚡', label: '사건 생성', action: 'handleEventGenerator' },
+        { icon: '🎤', label: '음성메모', action: 'handleVoiceMemo' },
+        { icon: '📜', label: '사건 기록', action: 'showEventArchive' }
+    ];
+    
+    tools.forEach(tool => {
+        const btn = createElement('button', {
+            className: 'stls-btn stls-btn-secondary',
+            style: {
+                justifyContent: 'flex-start',
+                textAlign: 'left'
+            },
+            onClick: () => {
+                if (modules.quickTools && modules.quickTools[tool.action]) {
+                    modules.quickTools[tool.action]();
+                } else {
+                    showInfo('퀵 도구 모듈이 활성화되지 않았습니다.');
+                }
+            }
+        }, `${tool.icon} ${tool.label}`);
+        
+        container.appendChild(btn);
+    });
+    
+    createPopup({
+        title: '🛠️ 퀵 도구 모음',
+        content: container,
+        width: '400px'
+    });
+}
+
+/**
+ * 퀵센드 버튼 추가 (send_form 내부)
+ */
+function addQuickSendButton() {
+    // SillyTavern의 전송 버튼 찾기
+    const sendButton = document.querySelector('#send_but') || document.querySelector('#send_button');
+    if (!sendButton) {
+        console.warn('[ST-LifeSim] 전송 버튼을 찾을 수 없습니다.');
+        return;
+    }
+    
+    // 이미 있으면 제거
+    const existing = document.querySelector('#stls-quicksend-btn');
+    if (existing) {
+        existing.remove();
+    }
+    
+    // 퀵센드 버튼 생성
+    const quickSendBtn = document.createElement('button');
+    quickSendBtn.id = 'stls-quicksend-btn';
+    quickSendBtn.className = 'stls-quicksend-btn';
+    quickSendBtn.innerHTML = '📨 퀵센드';
+    quickSendBtn.title = '메시지를 AI 응답 없이 전송 (Ctrl+Shift+Enter)';
+    quickSendBtn.type = 'button';
+    
+    quickSendBtn.addEventListener('click', async () => {
+        const chatInput = document.querySelector('#send_textarea') || document.querySelector('#chat_textarea');
+        if (!chatInput) return;
+        
+        const message = chatInput.value.trim();
+        if (!message) {
+            showInfo('전송할 메시지를 입력해주세요.');
+            return;
+        }
+        
+        try {
+            // /send 명령어 자동 추가
+            await send(message);
+            chatInput.value = '';
+            showSuccess('메시지를 전송했습니다.');
+        } catch (error) {
+            console.error('[ST-LifeSim] 퀵센드 오류:', error);
+            showInfo('메시지 전송 실패: ' + error.message);
+        }
+    });
+    
+    // 전송 버튼 옆에 추가
+    sendButton.parentElement.insertBefore(quickSendBtn, sendButton);
+    
+    // 단축키 등록 (Ctrl+Shift+Enter)
+    const chatInput = document.querySelector('#send_textarea') || document.querySelector('#chat_textarea');
+    if (chatInput) {
+        chatInput.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.shiftKey && e.key === 'Enter') {
+                e.preventDefault();
+                quickSendBtn.click();
+            }
+        });
+    }
+}
+
+/**
  * 확장 종료
  */
 function cleanup() {
@@ -152,6 +357,9 @@ function cleanup() {
             module.cleanup();
         }
     });
+    
+    // 플로팅 메뉴 제거
+    destroyFloatingMenu();
     
     // 컨텍스트 인젝터 비활성화
     contextInjector.setEnabled(false);

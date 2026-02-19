@@ -1,0 +1,89 @@
+/* ===========================================
+   contacts.css - 연락처 팝업 스타일
+   =========================================== */
+
+.stls-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.stls-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    border: 1px solid var(--SmartThemeBorderColor, #333);
+    border-radius: 8px;
+    background-color: var(--SmartThemeBodyColor, #1a1a1a);
+    transition: all 0.2s;
+}
+
+.stls-contact-item:hover {
+    border-color: var(--SmartThemeQuoteColor, #4a9eff);
+    background-color: var(--SmartThemeBlurTintColor, #2a2a2a);
+}
+
+.stls-contact-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--SmartThemeBorderColor, #333);
+    flex-shrink: 0;
+}
+
+.stls-contact-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.stls-contact-name {
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 4px;
+    color: var(--SmartThemeEmColor, #fff);
+}
+
+.stls-contact-desc {
+    font-size: 13px;
+    color: var(--SmartThemeEmColor, #aaa);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.stls-contact-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 6px;
+}
+
+.stls-contact-tag {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    background-color: var(--SmartThemeQuoteColor, #4a9eff);
+    color: white;
+}
+
+.stls-contact-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.stls-contact-search {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.stls-contact-binding {
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+    background-color: var(--SmartThemeBlurTintColor, rgba(0, 0, 0, 0.3));
+    border-radius: 4px;
+    margin-top: 15px;
+}

@@ -1,0 +1,144 @@
+/**
+ * ST-LifeSim 퀵 도구 스타일
+ */
+
+/* 툴바 컨테이너 */
+.lifesim-quick-toolbar {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--SmartThemeBlurTintColor, rgba(0, 0, 0, 0.2));
+    border: 1px solid var(--SmartThemeBorderColor, #333);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.lifesim-toolbar-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* 툴바 버튼 */
+.lifesim-toolbar-btn {
+    padding: 8px 12px;
+    background-color: var(--SmartThemeBodyColor, #2a2a2a);
+    border: 1px solid var(--SmartThemeBorderColor, #333);
+    border-radius: 6px;
+    color: var(--SmartThemeBodyText, #e0e0e0);
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.lifesim-toolbar-btn:hover {
+    background-color: var(--SmartThemeQuoteColor, #4a9eff);
+    border-color: var(--SmartThemeQuoteColor, #4a9eff);
+    transform: translateY(-1px);
+}
+
+.lifesim-toolbar-btn:active {
+    transform: translateY(0);
+}
+
+/* 드롭다운 컨테이너 */
+.lifesim-toolbar-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* 드롭다운 메뉴 */
+.lifesim-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 5px;
+    background-color: var(--SmartThemeBodyColor, #2a2a2a);
+    border: 1px solid var(--SmartThemeBorderColor, #333);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    min-width: 150px;
+    padding: 5px 0;
+}
+
+.lifesim-dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    background: none;
+    border: none;
+    color: var(--SmartThemeBodyText, #e0e0e0);
+    text-align: left;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.2s;
+}
+
+.lifesim-dropdown-menu button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 사건 기록 아카이브 스타일 */
+.lifesim-event-archive-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.lifesim-event-item {
+    padding: 15px;
+    border-bottom: 1px solid var(--SmartThemeBorderColor, #333);
+    transition: background-color 0.2s;
+}
+
+.lifesim-event-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.lifesim-event-item:last-child {
+    border-bottom: none;
+}
+
+.lifesim-event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.lifesim-event-category {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: var(--SmartThemeQuoteColor, #4a9eff);
+    color: white;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.lifesim-event-date {
+    font-size: 12px;
+    color: #999;
+}
+
+.lifesim-event-description {
+    font-size: 14px;
+    color: var(--SmartThemeBodyText, #e0e0e0);
+    line-height: 1.5;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .lifesim-quick-toolbar {
+        padding: 8px;
+    }
+    
+    .lifesim-toolbar-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}

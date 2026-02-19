@@ -1,0 +1,12 @@
+{
+  "display_name": "ST-LifeSim",
+  "loading_order": 1000,
+  "requires": [],
+  "optional": [],
+  "js": "index.js",
+  "css": "style.css",
+  "author": "gulggu",
+  "version": "1.0.0",
+  "homePage": "https://github.com/gulggu/STP",
+  "description": "SillyTavern Life Simulation Extension - Adds emoticons, contacts, quick tools, calls, wallet, SNS, and calendar features for immersive roleplay"
+}

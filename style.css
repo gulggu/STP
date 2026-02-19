@@ -1,0 +1,349 @@
+/* ============================================================================
+ * ST-LifeSim: 공통 스타일시트
+ * ============================================================================
+ * 팝업 오버레이, 공통 버튼, 툴바 등 모든 모듈에서 사용하는 기본 스타일
+ * ========================================================================== */
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * 팝업 오버레이 기본 스타일
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.stls-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: stls-fadeIn 0.2s ease;
+}
+
+.stls-overlay.closing {
+    animation: stls-fadeOut 0.2s ease;
+}
+
+@keyframes stls-fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes stls-fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * 팝업 윈도우 공통 스타일
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.stls-popup {
+    background: var(--SmartThemeBlurTintColor, #1a1a1a);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    animation: stls-slideIn 0.3s ease;
+}
+
+@keyframes stls-slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 팝업 헤더 */
+.stls-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stls-popup-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.stls-popup-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--SmartThemeBodyColor, #ccc);
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.stls-popup-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 팝업 본문 */
+.stls-popup-body {
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* 팝업 푸터 */
+.stls-popup-footer {
+    padding: 16px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * 공통 버튼 스타일
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.stls-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.stls-btn-primary {
+    background: var(--SmartThemeQuoteColor, #4a9eff);
+    color: white;
+}
+
+.stls-btn-primary:hover {
+    background: var(--SmartThemeQuoteColor, #3a8eef);
+    transform: translateY(-1px);
+}
+
+.stls-btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--SmartThemeBodyColor, #ccc);
+}
+
+.stls-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.stls-btn-danger {
+    background: #e74c3c;
+    color: white;
+}
+
+.stls-btn-danger:hover {
+    background: #c0392b;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * 폼 요소 공통 스타일
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.stls-input,
+.stls-textarea,
+.stls-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--SmartThemeBodyColor, #ccc);
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.stls-input:focus,
+.stls-textarea:focus,
+.stls-select:focus {
+    outline: none;
+    border-color: var(--SmartThemeQuoteColor, #4a9eff);
+}
+
+.stls-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.stls-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.stls-form-group {
+    margin-bottom: 16px;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * 툴바 스타일
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.stls-toolbar {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.stls-toolbar-btn {
+    padding: 6px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--SmartThemeBodyColor, #ccc);
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.stls-toolbar-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--SmartThemeQuoteColor, #4a9eff);
+}
+
+.stls-toolbar-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * 토스트 알림
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.stls-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    z-index: 10001;
+    animation: stls-slideInRight 0.3s ease;
+}
+
+.stls-toast.success {
+    background: #27ae60;
+}
+
+.stls-toast.error {
+    background: #e74c3c;
+}
+
+.stls-toast.warning {
+    background: #f39c12;
+}
+
+@keyframes stls-slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * 탭 스타일
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.stls-tabs {
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 16px;
+}
+
+.stls-tab {
+    padding: 10px 16px;
+    border: none;
+    background: none;
+    color: var(--SmartThemeBodyColor, #999);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    font-size: 14px;
+}
+
+.stls-tab:hover {
+    color: var(--SmartThemeBodyColor, #ccc);
+}
+
+.stls-tab.active {
+    color: var(--SmartThemeQuoteColor, #4a9eff);
+    border-bottom-color: var(--SmartThemeQuoteColor, #4a9eff);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * 유틸리티 클래스
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.stls-hidden {
+    display: none !important;
+}
+
+.stls-flex {
+    display: flex;
+}
+
+.stls-flex-col {
+    flex-direction: column;
+}
+
+.stls-gap-sm {
+    gap: 8px;
+}
+
+.stls-gap-md {
+    gap: 16px;
+}
+
+.stls-mt-sm {
+    margin-top: 8px;
+}
+
+.stls-mt-md {
+    margin-top: 16px;
+}
+
+.stls-mb-sm {
+    margin-bottom: 8px;
+}
+
+.stls-mb-md {
+    margin-bottom: 16px;
+}
+
+.stls-text-center {
+    text-align: center;
+}
+
+.stls-text-sm {
+    font-size: 12px;
+}
+
+.stls-text-muted {
+    color: var(--SmartThemeBodyColor, #999);
+}

@@ -1,0 +1,12 @@
+{
+  "display_name": "ST-LifeSim",
+  "loading_order": 100,
+  "requires": [],
+  "optional": [],
+  "js": "index.js",
+  "css": "style.css",
+  "author": "gulggu",
+  "version": "0.1.0",
+  "homePage": "https://github.com/gulggu/STP",
+  "description": "Life simulation extension for SillyTavern with emoticons, contacts, calendar, SNS, wallet and more"
+}

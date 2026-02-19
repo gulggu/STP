@@ -1,0 +1,161 @@
+/* ============================================================================
+ * sns.css - SNS 피드 팝업 스타일
+ * ========================================================================== */
+
+.stls-sns-popup {
+    width: 700px;
+    height: 700px;
+}
+
+.stls-sns-header {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.stls-sns-header button {
+    flex: 1;
+}
+
+.stls-sns-feed {
+    max-height: 550px;
+    overflow-y: auto;
+}
+
+.stls-sns-post {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    transition: all 0.2s;
+}
+
+.stls-sns-post:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.stls-sns-post-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.stls-sns-post-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.stls-sns-post-author-info {
+    flex: 1;
+}
+
+.stls-sns-post-author {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.stls-sns-post-date {
+    font-size: 12px;
+    color: var(--SmartThemeBodyColor, #999);
+}
+
+.stls-sns-post-content {
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.stls-sns-post-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.stls-sns-post-actions {
+    display: flex;
+    gap: 16px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stls-sns-action-btn {
+    background: none;
+    border: none;
+    color: var(--SmartThemeBodyColor, #999);
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.stls-sns-action-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--SmartThemeBodyColor, #ccc);
+}
+
+.stls-sns-action-btn.liked {
+    color: #e74c3c;
+}
+
+.stls-sns-comments {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stls-sns-comment {
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.stls-sns-comment-author {
+    font-weight: bold;
+    margin-right: 6px;
+}
+
+.stls-sns-comment-text {
+    color: var(--SmartThemeBodyColor, #ccc);
+}
+
+.stls-sns-reply {
+    margin-left: 24px;
+    padding: 6px 0;
+    font-size: 13px;
+    color: var(--SmartThemeBodyColor, #999);
+}
+
+.stls-sns-comment-input {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.stls-sns-comment-input input {
+    flex: 1;
+}
+
+.stls-sns-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stls-sns-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--SmartThemeBodyColor, #999);
+}
+
+.stls-sns-empty-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}

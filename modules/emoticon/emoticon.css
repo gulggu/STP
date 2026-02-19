@@ -1,0 +1,136 @@
+/* ============================================================================
+ * emoticon.css - 이모티콘 팝업 스타일
+ * ========================================================================== */
+
+.stls-emoticon-popup {
+    width: 650px;
+}
+
+.stls-emoticon-search {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+}
+
+.stls-emoticon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 8px;
+}
+
+.stls-emoticon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: rgba(255, 255, 255, 0.02);
+    position: relative;
+}
+
+.stls-emoticon-item:hover {
+    border-color: var(--SmartThemeQuoteColor, #4a9eff);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+.stls-emoticon-item.favorite {
+    border-color: #f39c12;
+}
+
+.stls-emoticon-image {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.stls-emoticon-name {
+    font-size: 12px;
+    text-align: center;
+    word-break: break-word;
+}
+
+.stls-emoticon-lock {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 12px;
+}
+
+.stls-emoticon-favorite {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.stls-emoticon-actions {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    display: none;
+    gap: 4px;
+}
+
+.stls-emoticon-item:hover .stls-emoticon-actions {
+    display: flex;
+}
+
+.stls-emoticon-action-btn {
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: white;
+    padding: 4px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.stls-emoticon-action-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.stls-emoticon-empty {
+    text-align: center;
+    padding: 40px;
+    color: var(--SmartThemeBodyColor, #999);
+}
+
+.stls-emoticon-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stls-emoticon-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.stls-emoticon-preview img {
+    max-width: 128px;
+    max-height: 128px;
+    object-fit: contain;
+}
+
+.stls-emoticon-category-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    font-size: 11px;
+    margin-right: 4px;
+}

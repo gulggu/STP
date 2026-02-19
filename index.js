@@ -13,10 +13,10 @@ import { initializePopup } from './utils/popup.js';
 import { initializeContextInjection } from './utils/context-inject.js';
 import { initializeUI } from './utils/ui.js';
 
-// 모듈 import (Phase 2-4에서 구현)
+// 모듈 import
 // import { initializeEmoticon } from './modules/emoticon/emoticon.js';
 // import { initializeContacts } from './modules/contacts/contacts.js';
-// import { initializeQuickTools } from './modules/quick-tools/quick-tools.js';
+import { initializeQuickTools } from './modules/quick-tools/quick-tools.js';
 // import { initializeCall } from './modules/call/call.js';
 // import { initializeWallet } from './modules/wallet/wallet.js';
 // import { initializeSNS } from './modules/sns/sns.js';
@@ -63,7 +63,11 @@ async function initialize() {
         await initializeContextInjection();
         await initializeUI();
         
-        // 4. 모듈 초기화 (Phase 2-4에서 구현)
+        // 4. 모듈 초기화
+        if (lifesimState.modules.quickTools.enabled) {
+            await initializeQuickTools();
+        }
+        // 다른 모듈들은 Phase 2-4에서 순차 구현
         // if (lifesimState.modules.emoticon.enabled) {
         //     await initializeEmoticon();
         // }

@@ -1,0 +1,145 @@
+/* ============================================================================
+ * call.css - 통화 & 통화기록 팝업 스타일
+ * ========================================================================== */
+
+.stls-call-popup {
+    width: 700px;
+    height: 650px;
+}
+
+.stls-call-active-bar {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #27ae60;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stls-call-active-icon {
+    font-size: 20px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.stls-call-active-info {
+    flex: 1;
+}
+
+.stls-call-active-name {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.stls-call-active-time {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.stls-call-logs-list {
+    max-height: 520px;
+    overflow-y: auto;
+}
+
+.stls-call-log-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.stls-call-log-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.stls-call-log-contact {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.stls-call-log-date {
+    font-size: 12px;
+    color: var(--SmartThemeBodyColor, #999);
+}
+
+.stls-call-log-duration {
+    font-size: 14px;
+    color: var(--SmartThemeQuoteColor, #4a9eff);
+    margin-bottom: 8px;
+}
+
+.stls-call-log-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.stls-call-log-content {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.stls-call-log-message {
+    padding: 8px;
+    margin-bottom: 6px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.stls-call-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--SmartThemeBodyColor, #999);
+}
+
+.stls-call-empty-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.stls-call-notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    padding: 24px 32px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+    z-index: 10001;
+    text-align: center;
+}
+
+.stls-call-notification-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.stls-call-notification-text {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.stls-call-notification-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}

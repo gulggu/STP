@@ -455,7 +455,15 @@ function generateContext() {
     );
 }
 
+/**
+ * 지갑 팝업 표시 (외부에서 호출 가능)
+ */
+export function showWalletPanel() {
+    showWalletPopup();
+}
+
 export default {
     init,
-    cleanup
+    cleanup,
+    showWalletPanel
 };

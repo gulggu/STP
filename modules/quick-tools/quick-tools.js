@@ -27,11 +27,11 @@ export async function init() {
     // 이벤트 아카이브 로드
     loadEventArchive();
     
-    // 툴바 생성
-    createToolbar();
+    // 툴바는 더 이상 생성하지 않음 (플로팅 메뉴로 대체)
+    // createToolbar();
     
-    // 단축키 등록
-    registerHotkeys();
+    // 단축키 등록 (퀵센드는 index.js에서 처리)
+    // registerHotkeys();
     
     console.log('[QuickTools] 모듈 초기화 완료');
 }
@@ -40,13 +40,14 @@ export async function init() {
  * 모듈 정리
  */
 export function cleanup() {
-    if (toolbar) {
-        toolbar.remove();
-        toolbar = null;
-    }
+    // 툴바 제거 로직 제거됨
+    // if (toolbar) {
+    //     toolbar.remove();
+    //     toolbar = null;
+    // }
     
     // 단축키 해제
-    unregisterHotkeys();
+    // unregisterHotkeys();
 }
 
 /**
@@ -423,5 +424,12 @@ function handleKeyDown(event) {
 
 export default {
     init,
-    cleanup
+    cleanup,
+    handleTimeDivider,
+    handleReadReceipt,
+    handleUnreachable,
+    handleEventGenerator,
+    handleVoiceMemo,
+    showEventArchive
+};
 };

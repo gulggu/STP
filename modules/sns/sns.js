@@ -551,7 +551,15 @@ function generateContext() {
     return formatSection('최근 SNS (컨텍스트 포함 설정 기준)', items);
 }
 
+/**
+ * SNS 팝업 표시 (외부에서 호출 가능)
+ */
+export function showSNSPanel() {
+    showSNSPopup();
+}
+
 export default {
     init,
-    cleanup
+    cleanup,
+    showSNSPanel
 };

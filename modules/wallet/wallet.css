@@ -1,0 +1,120 @@
+/* ============================================================================
+ * wallet.css - 지갑 & 송금 팝업 스타일
+ * ========================================================================== */
+
+.stls-wallet-popup {
+    width: 550px;
+}
+
+.stls-wallet-balance {
+    text-align: center;
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(74, 158, 255, 0.2) 0%, rgba(74, 158, 255, 0.05) 100%);
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.stls-wallet-balance-label {
+    font-size: 14px;
+    color: var(--SmartThemeBodyColor, #999);
+    margin-bottom: 8px;
+}
+
+.stls-wallet-balance-amount {
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--SmartThemeQuoteColor, #4a9eff);
+}
+
+.stls-wallet-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.stls-wallet-actions button {
+    flex: 1;
+}
+
+.stls-wallet-transfer-form {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.stls-wallet-history {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.stls-wallet-history-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border-left: 3px solid transparent;
+}
+
+.stls-wallet-history-item.send {
+    border-left-color: #e74c3c;
+}
+
+.stls-wallet-history-item.receive {
+    border-left-color: #27ae60;
+}
+
+.stls-wallet-history-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.stls-wallet-history-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.stls-wallet-history-counterpart {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.stls-wallet-history-note {
+    font-size: 12px;
+    color: var(--SmartThemeBodyColor, #999);
+}
+
+.stls-wallet-history-amount {
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.stls-wallet-history-amount.send {
+    color: #e74c3c;
+}
+
+.stls-wallet-history-amount.receive {
+    color: #27ae60;
+}
+
+.stls-wallet-history-date {
+    font-size: 11px;
+    color: var(--SmartThemeBodyColor, #666);
+    text-align: right;
+}
+
+.stls-wallet-empty {
+    text-align: center;
+    padding: 40px;
+    color: var(--SmartThemeBodyColor, #999);
+}
+
+.stls-wallet-settings {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 16px;
+    border-radius: 8px;
+}

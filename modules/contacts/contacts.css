@@ -1,0 +1,121 @@
+/* ============================================================================
+ * contacts.css - NPC 연락처 팝업 스타일
+ * ========================================================================== */
+
+.stls-contacts-popup {
+    width: 700px;
+    height: 650px;
+}
+
+.stls-contacts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 12px;
+}
+
+.stls-contacts-search {
+    flex: 1;
+}
+
+.stls-contacts-list {
+    max-height: 450px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stls-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.stls-contact-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--SmartThemeQuoteColor, #4a9eff);
+}
+
+.stls-contact-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.stls-contact-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.stls-contact-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.stls-contact-desc {
+    font-size: 13px;
+    color: var(--SmartThemeBodyColor, #999);
+    margin-bottom: 2px;
+}
+
+.stls-contact-tags {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+.stls-contact-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    font-size: 11px;
+}
+
+.stls-contact-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.stls-contact-binding {
+    margin-top: 16px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.stls-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.stls-contact-form .stls-form-group {
+    margin-bottom: 0;
+}
+
+.stls-contact-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--SmartThemeBodyColor, #999);
+}
+
+.stls-contact-empty-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}

@@ -203,12 +203,13 @@
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- * 툴바 스타일 (Hidden by default - moved to floating menu)
+ * 툴바 스타일 (Hidden - replaced by floating menu, kept for compatibility)
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .stls-toolbar {
     display: none;
 }
 
+/* Toolbar button styles kept for potential future use or module compatibility */
 .stls-toolbar-btn {
     padding: 8px 14px;
     border: none;

@@ -14,9 +14,10 @@
 import { storage } from './utils/storage.js';
 import { contextInjector } from './utils/context-inject.js';
 import { showSettings } from './settings.js';
-import { showSuccess, showInfo } from './utils/ui.js';
+import { showSuccess, showInfo, createElement } from './utils/ui.js';
 import { initFloatingMenu, destroyFloatingMenu } from './utils/floating-menu.js';
 import { send } from './utils/slash.js';
+import { createPopup } from './utils/popup.js';
 
 // 모듈 동적 import
 const modules = {};
@@ -242,9 +243,6 @@ function setupFloatingMenu() {
  * 퀵 도구 메뉴 표시
  */
 function showQuickToolsMenu() {
-    const { createPopup } = require('./utils/popup.js');
-    const { createElement } = require('./utils/ui.js');
-    
     const container = createElement('div', {
         className: 'stls-flex stls-flex-col stls-gap-md'
     });

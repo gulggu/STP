@@ -145,7 +145,7 @@ export function closePopup() {
     const { overlay, onClose } = currentPopup;
     
     // 닫기 애니메이션
-    overlay.style.animation = 'fadeOut 0.2s ease-in-out';
+    overlay.style.animation = 'fadeOut 0.2s ease-in-out forwards';
     
     setTimeout(() => {
         if (overlay.parentNode) {
@@ -167,9 +167,13 @@ export function closePopup() {
  * @param {Function} onCancel - 취소 시 콜백 (선택)
  */
 export function showConfirmDialog(message, onConfirm, onCancel = null) {
+    const messageElement = document.createElement('p');
+    messageElement.style.margin = '20px 0';
+    messageElement.textContent = message; // XSS 방지
+    
     createPopup({
         title: '확인',
-        content: `<p style="margin: 20px 0;">${message}</p>`,
+        content: messageElement,
         width: '400px',
         buttons: [
             {
@@ -194,9 +198,13 @@ export function showConfirmDialog(message, onConfirm, onCancel = null) {
  * @param {Function} onOk - 확인 시 콜백 (선택)
  */
 export function showAlertDialog(message, onOk = null) {
+    const messageElement = document.createElement('p');
+    messageElement.style.margin = '20px 0';
+    messageElement.textContent = message; // XSS 방지
+    
     createPopup({
         title: '알림',
-        content: `<p style="margin: 20px 0;">${message}</p>`,
+        content: messageElement,
         width: '400px',
         buttons: [
             {

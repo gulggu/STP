@@ -381,10 +381,28 @@ async function showAddEmoticonDialog(existingEmoticon = null) {
         document.getElementById('emoticon-url')?.addEventListener('input', (e) => {
             const preview = document.getElementById('emoticon-preview');
             const url = e.target.value.trim();
+            
+            // 기존 내용 클리어
+            preview.innerHTML = '';
+            
             if (url) {
-                preview.innerHTML = `<img src="${url}" alt="미리보기" onerror="this.parentElement.innerHTML='<span style=&quot;color: #f00;&quot;>이미지를 불러올 수 없습니다</span>'">`;
+                // XSS 방지: createElement와 setAttribute 사용
+                const img = document.createElement('img');
+                img.alt = '미리보기';
+                img.onerror = function() {
+                    preview.innerHTML = '';
+                    const errorSpan = document.createElement('span');
+                    errorSpan.style.color = '#f00';
+                    errorSpan.textContent = '이미지를 불러올 수 없습니다';
+                    preview.appendChild(errorSpan);
+                };
+                img.src = url; // URL 설정은 마지막에
+                preview.appendChild(img);
             } else {
-                preview.innerHTML = '<span style="color: #999;">URL을 입력하세요</span>';
+                const span = document.createElement('span');
+                span.style.color = '#999';
+                span.textContent = 'URL을 입력하세요';
+                preview.appendChild(span);
             }
         });
     }, 100);

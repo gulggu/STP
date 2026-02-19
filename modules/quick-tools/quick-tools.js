@@ -367,7 +367,9 @@ async function showEventArchive() {
         
         eventArchive.reverse().forEach(event => {
             const date = new Date(event.date);
-            const dateStr = `${date.getMonth() + 1}월 ${date.getDate()}일 ${date.getHours()}:${date.getMinutes().toString().padStart(2, '0')}`;
+            const hours = date.getHours().toString().padStart(2, '0');
+            const minutes = date.getMinutes().toString().padStart(2, '0');
+            const dateStr = `${date.getMonth() + 1}월 ${date.getDate()}일 ${hours}:${minutes}`;
             
             archiveHtml += `
                 <div class="lifesim-event-item">

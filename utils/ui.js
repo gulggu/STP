@@ -50,7 +50,15 @@ export function showToast(message, type = 'info', duration = 3000) {
             break;
     }
     
-    toast.innerHTML = `<strong>${icon}</strong> ${message}`;
+    // XSS 방지: textContent 사용
+    const iconSpan = document.createElement('strong');
+    iconSpan.textContent = icon;
+    
+    const messageSpan = document.createElement('span');
+    messageSpan.textContent = ' ' + message;
+    
+    toast.appendChild(iconSpan);
+    toast.appendChild(messageSpan);
     
     // DOM에 추가
     document.body.appendChild(toast);

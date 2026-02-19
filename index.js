@@ -183,7 +183,7 @@ function attachSettingsListeners() {
     // 모듈별 활성화/비활성화
     const modules = ['emoticon', 'contacts', 'quick-tools', 'call', 'wallet', 'sns', 'calendar'];
     modules.forEach(module => {
-        const moduleKey = module.replace('-', '');
+        const moduleKey = module.replace(/-/g, ''); // 전역 플래그 사용
         document.getElementById(`lifesim-module-${module}`)?.addEventListener('change', (e) => {
             const key = module === 'quick-tools' ? 'quickTools' : moduleKey;
             lifesimState.modules[key].enabled = e.target.checked;

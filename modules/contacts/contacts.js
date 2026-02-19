@@ -428,7 +428,15 @@ function generateContext() {
     return formatSection('주변 인물', items);
 }
 
+/**
+ * 연락처 팝업 표시 (외부에서 호출 가능)
+ */
+export function showContactsPanel() {
+    showContactsPopup();
+}
+
 export default {
     init,
-    cleanup
+    cleanup,
+    showContactsPanel
 };

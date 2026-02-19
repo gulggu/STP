@@ -540,7 +540,15 @@ function generateContext() {
     return formatSection('최근 통화기록', items);
 }
 
+/**
+ * 통화기록 팝업 표시 (외부에서 호출 가능)
+ */
+export function showCallPanel() {
+    showCallLogsPopup();
+}
+
 export default {
     init,
-    cleanup
+    cleanup,
+    showCallPanel
 };

@@ -423,7 +423,15 @@ function generateContext() {
     return formatSection('AI 사용 가능 이모티콘', items);
 }
 
+/**
+ * 이모티콘 팝업 표시 (외부에서 호출 가능)
+ */
+export function showEmoticonPanel() {
+    showEmoticonPopup();
+}
+
 export default {
     init,
-    cleanup
+    cleanup,
+    showEmoticonPanel
 };

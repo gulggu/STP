@@ -512,7 +512,15 @@ function generateContext() {
     return formatSection('일정', items);
 }
 
+/**
+ * 캘린더 팝업 표시 (외부에서 호출 가능)
+ */
+export function showCalendarPanel() {
+    showCalendarPopup();
+}
+
 export default {
     init,
-    cleanup
+    cleanup,
+    showCalendarPanel
 };

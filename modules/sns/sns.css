@@ -1,0 +1,136 @@
+/* ===========================================
+   sns.css - SNS 팝업 스타일
+   =========================================== */
+
+.stls-sns-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.stls-sns-post {
+    border: 1px solid var(--SmartThemeBorderColor, #333);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: var(--SmartThemeBodyColor, #1a1a1a);
+}
+
+.stls-sns-post-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.stls-sns-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--SmartThemeBorderColor, #333);
+}
+
+.stls-sns-author-info {
+    flex: 1;
+}
+
+.stls-sns-author-name {
+    font-weight: bold;
+    color: var(--SmartThemeEmColor, #fff);
+}
+
+.stls-sns-post-date {
+    font-size: 12px;
+    color: var(--SmartThemeEmColor, #888);
+}
+
+.stls-sns-post-content {
+    margin-bottom: 12px;
+    color: var(--SmartThemeEmColor, #fff);
+    line-height: 1.5;
+}
+
+.stls-sns-post-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.stls-sns-post-actions {
+    display: flex;
+    gap: 15px;
+    padding-top: 8px;
+    border-top: 1px solid var(--SmartThemeBorderColor, #333);
+}
+
+.stls-sns-action-btn {
+    background: none;
+    border: none;
+    color: var(--SmartThemeEmColor, #aaa);
+    cursor: pointer;
+    font-size: 14px;
+    padding: 4px 8px;
+    transition: color 0.2s;
+}
+
+.stls-sns-action-btn:hover {
+    color: var(--SmartThemeEmColor, #fff);
+}
+
+.stls-sns-action-btn.liked {
+    color: #e74c3c;
+}
+
+.stls-sns-comments {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--SmartThemeBorderColor, #333);
+}
+
+.stls-sns-comment {
+    padding: 8px 0;
+    margin-left: 20px;
+}
+
+.stls-sns-comment-author {
+    font-weight: bold;
+    font-size: 13px;
+    color: var(--SmartThemeEmColor, #fff);
+    margin-right: 8px;
+}
+
+.stls-sns-comment-text {
+    font-size: 13px;
+    color: var(--SmartThemeEmColor, #ddd);
+}
+
+.stls-sns-reply {
+    margin-left: 40px;
+    margin-top: 6px;
+    padding: 6px 0;
+    font-size: 13px;
+}
+
+.stls-sns-comment-input {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.stls-sns-feed {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.stls-sns-story-badge {
+    display: inline-block;
+    background-color: var(--SmartThemeQuoteColor, #4a9eff);
+    color: white;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-left: 8px;
+}

@@ -1,0 +1,105 @@
+/* ===========================================
+   wallet.css - 지갑 팝업 스타일
+   =========================================== */
+
+.stls-wallet-balance {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, var(--SmartThemeQuoteColor, #4a9eff) 0%, var(--SmartThemeBlurTintColor, #3a8eef) 100%);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.stls-wallet-balance-label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 8px;
+}
+
+.stls-wallet-balance-amount {
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+}
+
+.stls-wallet-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.stls-wallet-section {
+    margin-top: 20px;
+}
+
+.stls-wallet-section-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--SmartThemeEmColor, #fff);
+}
+
+.stls-wallet-history {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.stls-wallet-history-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    border: 1px solid var(--SmartThemeBorderColor, #333);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    background-color: var(--SmartThemeBodyColor, #1a1a1a);
+}
+
+.stls-wallet-history-icon {
+    font-size: 24px;
+    margin-right: 12px;
+}
+
+.stls-wallet-history-info {
+    flex: 1;
+}
+
+.stls-wallet-history-name {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: var(--SmartThemeEmColor, #fff);
+}
+
+.stls-wallet-history-note {
+    font-size: 12px;
+    color: var(--SmartThemeEmColor, #888);
+}
+
+.stls-wallet-history-amount {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.stls-wallet-history-amount.send {
+    color: #f44336;
+}
+
+.stls-wallet-history-amount.receive {
+    color: #4caf50;
+}
+
+.stls-wallet-history-date {
+    font-size: 11px;
+    color: var(--SmartThemeEmColor, #888);
+    text-align: right;
+}
+
+.stls-wallet-receipt {
+    padding: 15px;
+    background-color: var(--SmartThemeBodyColor, #1a1a1a);
+    border: 1px solid var(--SmartThemeBorderColor, #333);
+    border-radius: 4px;
+    font-family: monospace;
+    white-space: pre-line;
+    color: var(--SmartThemeEmColor, #fff);
+}

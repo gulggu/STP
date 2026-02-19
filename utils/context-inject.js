@@ -131,16 +131,32 @@ function buildSNSContext() {
  * @returns {string|null}
  */
 function buildEmoticonContext() {
-    // Module 1에서 구현 예정
     if (!window.lifesim || !window.lifesim.state.modules.emoticon.enabled) {
         return null;
     }
     
-    // 예시:
-    // === AI 사용 가능 이모티콘 ===
-    // • 하트: ![하트](url) | 놀람: ![놀람](url)
-    
-    return null; // 아직 구현 안 됨
+    // 이모티콘 모듈에서 AI 사용 가능한 이모티콘 가져오기
+    try {
+        // 동적 import를 통해 이모티콘 데이터 가져오기
+        const emoticonModule = window.lifesimEmoticon;
+        if (!emoticonModule || !emoticonModule.getAIUsableEmoticons) {
+            return null;
+        }
+        
+        const aiEmoticons = emoticonModule.getAIUsableEmoticons();
+        if (!aiEmoticons || aiEmoticons.length === 0) {
+            return null;
+        }
+        
+        // 최대 10개까지만 컨텍스트에 포함 (토큰 절약)
+        const limited = aiEmoticons.slice(0, 10);
+        const emoticonList = limited.map(e => `${e.name}: ![${e.name}](${e.url})`).join(' | ');
+        
+        return `=== AI 사용 가능 이모티콘 ===\n${emoticonList}`;
+    } catch (error) {
+        console.warn('[ST-LifeSim Context] Failed to build emoticon context:', error);
+        return null;
+    }
 }
 
 /**

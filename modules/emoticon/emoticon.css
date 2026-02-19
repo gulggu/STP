@@ -1,0 +1,171 @@
+/**
+ * ST-LifeSim 이모티콘 모듈 스타일
+ */
+
+/* 이모티콘 컨테이너 */
+.lifesim-emoticon-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* 이모티콘 그리드 */
+.lifesim-emoticon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+    max-height: 400px;
+}
+
+/* 이모티콘 아이템 */
+.lifesim-emoticon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid var(--SmartThemeBorderColor, #333);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: var(--SmartThemeBodyColor, #2a2a2a);
+    position: relative;
+}
+
+.lifesim-emoticon-item:hover {
+    border-color: var(--SmartThemeQuoteColor, #4a9eff);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 이모티콘 이미지 */
+.lifesim-emoticon-image {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.lifesim-emoticon-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* 잠금 아이콘 (유저 전용) */
+.lifesim-lock-icon {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 즐겨찾기 아이콘 */
+.lifesim-favorite-icon {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    font-size: 16px;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+}
+
+/* 이모티콘 이름 */
+.lifesim-emoticon-name {
+    font-size: 12px;
+    color: var(--SmartThemeBodyText, #e0e0e0);
+    text-align: center;
+    word-break: break-word;
+    max-width: 100%;
+}
+
+/* 이모티콘 하단 버튼 영역 */
+.lifesim-emoticon-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+    border-top: 1px solid var(--SmartThemeBorderColor, #333);
+}
+
+/* 미리보기 영역 */
+.lifesim-emoticon-preview {
+    width: 100px;
+    height: 100px;
+    border: 2px dashed var(--SmartThemeBorderColor, #333);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.lifesim-emoticon-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* 컨텍스트 메뉴 */
+.lifesim-context-menu {
+    position: fixed;
+    background-color: var(--SmartThemeBodyColor, #2a2a2a);
+    border: 1px solid var(--SmartThemeBorderColor, #333);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 10001;
+    min-width: 180px;
+    padding: 5px 0;
+}
+
+.lifesim-context-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    background: none;
+    border: none;
+    color: var(--SmartThemeBodyText, #e0e0e0);
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.lifesim-context-menu button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 탭 내용 스크롤 */
+.lifesim-tab-content {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .lifesim-emoticon-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 10px;
+        padding: 15px;
+    }
+    
+    .lifesim-emoticon-image {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .lifesim-emoticon-name {
+        font-size: 11px;
+    }
+}
